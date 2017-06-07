@@ -1,17 +1,17 @@
-#Install Vue.js
+# Install Vue.js
 
 sudo npm install -g vue-cli
 
 
-#Install Vuetify
+# Install Vuetify
 
 npm install vuetify --save-dev
 
-#Install Live Server
+# Install Live Server
 
 sudo npm install -g live-server
 
-#Run App
+# Run App
 
 Get into folder's application and run the following command:
 
