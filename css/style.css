@@ -734,6 +734,11 @@ figure figcaption {
   width: 25px;
   border-bottom: none !important;
 }
+
+.carousel-inner {
+  max-height: 400px;
+}
+
 @media screen and (max-width: 768px) {
   .fh5co-nav-toggle {
     display: block;
