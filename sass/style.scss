@@ -459,7 +459,7 @@ p {
 			font-size: 34px;
 			color: $brand-black;
 			margin-bottom: 30px;
-			a {
+			a, p {
 				color: $brand-black;
 			}
 			@media screen and (max-width: $screen-md) {
