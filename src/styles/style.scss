@@ -101,6 +101,7 @@ html {
 	background: $brand-white;
 }
 body {
+	margin: 0 auto;
 	font-family: $font-secondary;
 	font-size: 18px;
 	font-weight: 300;
@@ -270,6 +271,8 @@ p {
 		box-shadow: none;
 	}
 }
+
+figure {margin: 0px;}
 
 // Form Input Field
 .form-control {
@@ -553,18 +556,139 @@ p {
 			font-size: 20px;
 			padding: 4px;
 			color: $brand-black;
+			text-decoration: none;
 		}
 	}
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-linkedin-with-circle:before {
+    content: "\ea72";
+}
+.icon-linkedin:before {
+    content: "\ea73";
+}
+
+.icon-instagram-with-circle:before {
+    content: "\ea6e";
+}
+.icon-instagram:before {
+    content: "\ea6f";
+}
+
+.icon-facebook-with-circle:before {
+    content: "\ea66";
+}
+.icon-facebook:before {
+    content: "\ea67";
+}
+
+.icon-github-with-circle:before {
+    content: "\ea6a";
+}
+.icon-github:before {
+    content: "\ea6b";
+}
+
+.icon-cross3:before {
+    content: "\e117";
 }
 
 figure {
 	figcaption {
 		padding-top: 15px;
 		font-size: 14px;
-		// font-style: italic;
 		color: lighten($brand-black, 60%);
 	}
 }
+
+.showSidebar {
+	display: block!important;
+	opacity: 1!important;
+}
+
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+  }
+
+@-webkit-keyframes fadeInLeft {
+	from {
+	  opacity: 0;
+	  -webkit-transform: translate3d(-50px, 0, 0);
+	  transform: translate3d(-50px, 0, 0);
+	}
+  
+	to {
+	  opacity: 1;
+	  -webkit-transform: none;
+	  transform: none;
+	}
+  }
+  
+  @keyframes fadeInLeft {
+	from {
+	  opacity: 0;
+	  -webkit-transform: translate3d(-50px, 0, 0);
+	  transform: translate3d(-50px, 0, 0);
+	}
+  
+	to {
+	  opacity: 1;
+	  -webkit-transform: none;
+	  transform: none;
+	}
+  }
+  
+  .fadeInLeft {
+	-webkit-animation-name: fadeInLeft;
+	animation-name: fadeInLeft;
+  }
+
+  @-webkit-keyframes fadeOutLeft {
+	from {
+	  opacity: 1;
+	}
+  
+	to {
+	  opacity: 0;
+	  -webkit-transform: translate3d(-50px, 0, 0);
+	  transform: translate3d(-50px, 0, 0);
+	}
+  }
+  
+  @keyframes fadeOutLeft {
+	from {
+	  opacity: 1;
+	}
+  
+	to {
+	  opacity: 0;
+	  -webkit-transform: translate3d(-50px, 0, 0);
+	  transform: translate3d(-50px, 0, 0);
+	}
+  }
+  
+  .fadeOutLeft {
+	-webkit-animation-name: fadeOutLeft;
+	animation-name: fadeOutLeft;
+  }
 
 #fh5co-offcanvas {
 	background: $brand-white;
@@ -577,6 +701,7 @@ figure {
 	overflow-y: auto;
 	opacity: 0;
 	display: none;
+	text-align: left;
 	@media screen and (max-width: $screen-sm) {
 		padding-top: 30px;
 		width: 270px;
@@ -587,6 +712,7 @@ figure {
 		right: 20px;
 		font-size: 30px;
 		width: 30px;
+		cursor: pointer;
 		overflow: hidden;
 		color: lighten($brand-black, 80%);
 		@include transition(.3s);
@@ -616,7 +742,7 @@ figure {
 	}
 	.fh5co-menu,
 	.fh5co-bio {
-		width: 50%;
+		width: 35%;
 		padding: 50px;
 		@media screen and (max-width: $screen-sm) {
 			width: 100%;
