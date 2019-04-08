@@ -3,32 +3,16 @@ import React, { Component } from 'react';
 import Footer from './components/footerComponent';
 import './styles/style.scss';
 import firebase from './firebase.js';
+import { social, firebaseFolders } from './configObjects'
 
 
-const social = [ 
-  {
-      name: "linkedin",
-      url: "https://www.linkedin.com/in/david-padrino"
-  },
-  {
-      name: "facebook",
-      url: "https://www.facebook.com/dave.padrino"
-  },
-  {
-      name: "instagram",
-      url: "https://www.instagram.com/dave_padrino/"
-  },
-  {
-      name: "github",
-      url: "https://github.com/davepadrino"
-  }
-]
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      sidebarOpen: false
+      sidebarOpen: false,
+      projects: []
     }
   }
 
@@ -44,10 +28,21 @@ class App extends Component {
     </ul>
 
 
-  componentWillMount = () => {
-    firebase.storage().ref().child(`/Lider Positivo/home.bmp`).getDownloadURL().then(el => {
-      this.setState({lp: el})
-    })
+  componentDidMount = () => {
+    // firebaseFolders.forEach(element => {
+    //   element.resourceName.forEach(img => {
+    //     console.log(`/${element.folderName}/${img.imageUrl}`);
+    //     firebase.storage().ref().child(`/${element.folderName}/${img.imageUrl}`).getDownloadURL().then(el => {
+    //           this.setState({projects: [...this.state.projects , `${element.folderName}`: el]]})
+
+    //       // this.setState({[`/${element.folderName}/${img.imageUrl}`]: el})
+    //     })
+    //   })
+    // })
+      firebase.storage().ref().child(`/Lider Positivo/home.bmp`).getDownloadURL().then(el => {
+        this.setState({projects: [{'lp': el}]})
+        // this.setState({projects: [{[`lider-positivo`]: el}]})
+      })
   }
   
 
@@ -117,16 +112,22 @@ class App extends Component {
 
 
 
-
+      { this.state.projects.length > 0 && 
 			<article className="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<p><img src={this.state.lp} alt="home" className="img-responsive" /></p>
+      {Object.keys(this.state.projects).map((project, index) => 
+      <div key={index}>
+        <figure>
+					<p><img src={this.state.projects[project]} alt="home" className="img-responsive" /></p>
 				</figure>
-				<span className="fh5co-meta"><p>Wordpress</p></span>
+				<span className="fh5co-meta"><p>Wordpress {project}</p></span>
 				<a href="https://liderpositivo.com/" className="fh5co-meta" target="_blank" rel="noopener noreferrer">Visit</a>
 				<h2 className="fh5co-article-title"><a href="#" data-toggle="modal" data-target="#lider-positivo-modal">Líder Positivo</a></h2>
 				<span className="fh5co-meta fh5co-date"> 2018</span>
+      </div>
+        )
+      }
 			</article>
+      }
 
 			<div id="lider-positivo-modal" className="modal fade" tabIndex="-1" role="dialog">
 				<div className="modal-dialog modal-lg">
@@ -182,8 +183,6 @@ class App extends Component {
 									<h4>Role</h4>
 									Fullstack Developer
 								</div>
-
-
 
 							</div>
 
