@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Footer from './components/footerComponent';
 import './styles/style.scss';
 import firebase from './firebase.js';
-import { social, firebaseFolders } from './configObjects'
+import { social, mainImages } from './configObjects'
 
 
 
@@ -29,25 +29,30 @@ class App extends Component {
 
 
   componentDidMount = () => {
-    // firebaseFolders.forEach(element => {
-    //   element.resourceName.forEach(img => {
-    //     console.log(`/${element.folderName}/${img.imageUrl}`);
-    //     firebase.storage().ref().child(`/${element.folderName}/${img.imageUrl}`).getDownloadURL().then(el => {
-    //           this.setState({projects: [...this.state.projects , `${element.folderName}`: el]]})
-
-    //       // this.setState({[`/${element.folderName}/${img.imageUrl}`]: el})
-    //     })
-    //   })
-    // })
-      firebase.storage().ref().child(`/Lider Positivo/home.bmp`).getDownloadURL().then(el => {
-        this.setState({projects: [{'lp': el}]})
-        // this.setState({projects: [{[`lider-positivo`]: el}]})
-      })
+    mainImages.forEach(element => {
+        console.log(`/${element.folderName}/${element.imageUrl}`);
+        firebase.storage().ref().child(`/${element.folderName}/${element.imageUrl}`).getDownloadURL().then(el => {
+                this.setState({projects: [...this.state.projects, 
+                  {
+                    imageUrl: el, 
+                    projectName: element.projectName,
+                    year: element.year,
+                    webUrl: element.webUrl,
+                    tech: element.tech,
+                    folderName: element.folderName
+                  }]})
+        })
+    })
+      // firebase.storage().ref().child(`/Lider Positivo/home.bmp`).getDownloadURL().then(el => {
+      //   this.setState({projects: [...this.state.projects, {imageUrl: el, projectName: 'Lider Positivo'}]})
+      //   // this.setState({projects: {'lp': el}})
+      //   // this.setState({projects: [{[`lider-positivo`]: el}]})
+      // })
   }
   
 
   render() {
-    console.log('this,state', this.state)
+    console.log('this,state', this.state.projects)
     return (
       <div onClick={() => {
         if (this.state.sidebarOpen) {
@@ -113,22 +118,21 @@ class App extends Component {
 
 
       { this.state.projects.length > 0 && 
-			<article className="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-      {Object.keys(this.state.projects).map((project, index) => 
-      <div key={index}>
-        <figure>
-					<p><img src={this.state.projects[project]} alt="home" className="img-responsive" /></p>
-				</figure>
-				<span className="fh5co-meta"><p>Wordpress {project}</p></span>
-				<a href="https://liderpositivo.com/" className="fh5co-meta" target="_blank" rel="noopener noreferrer">Visit</a>
-				<h2 className="fh5co-article-title"><a href="#" data-toggle="modal" data-target="#lider-positivo-modal">Líder Positivo</a></h2>
-				<span className="fh5co-meta fh5co-date"> 2018</span>
-      </div>
-        )
-      }
-			</article>
-      }
-
+        Object.keys(this.state.projects).map((project, index) => 
+        <article className="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+          <div key={index}>
+            <figure >
+              <p><img src={this.state.projects[`${index}`].imageUrl} alt="home" className="img-responsive" /></p>
+            </figure>
+            <span className="fh5co-meta"><p>{this.state.projects[`${index}`].tech}</p></span>
+            <a href={this.state.projects[`${index}`].webUrl} className="fh5co-meta" target="_blank" rel="noopener noreferrer">Visit</a>
+            <h2 className="fh5co-article-title"><a href="#" data-toggle="modal" data-target={`#${this.state.projects[`${index}`].folderName}-modal`}>{this.state.projects[`${index}`].projectName}</a></h2>
+            <span className="fh5co-meta fh5co-date">{this.state.projects[`${index}`].year}</span>
+          </div>
+          </article>
+      )}
+      
+        {/* IMPORTANTE REVISAR */}
 			<div id="lider-positivo-modal" className="modal fade" tabIndex="-1" role="dialog">
 				<div className="modal-dialog modal-lg">
 
