@@ -22,7 +22,7 @@ export const mainImages = [
         webUrl: 'https://liderpositivo.com/',
         tech: 'Wordpress'
     },
-    {
+    /*{ 
         projectName: 'PT Wired',
         folderName: '',
         imageUrl: 'home.jpg',
@@ -109,7 +109,7 @@ export const mainImages = [
         year: '2016',
         webUrl: 'http://patrickmcginnis.com/',
         tech: 'Wordpress'
-    },
+    }, */
     {
         projectName: 'Academia de Artes',
         folderName: 'academia-de-artes',

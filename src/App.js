@@ -30,7 +30,6 @@ class App extends Component {
 
   componentDidMount = () => {
     mainImages.forEach(element => {
-        console.log(`/${element.folderName}/${element.imageUrl}`);
         firebase.storage().ref().child(`/${element.folderName}/${element.imageUrl}`).getDownloadURL().then(el => {
                 this.setState({projects: [...this.state.projects, 
                   {
@@ -52,7 +51,6 @@ class App extends Component {
   
 
   render() {
-    console.log('this,state', this.state.projects)
     return (
       <div onClick={() => {
         if (this.state.sidebarOpen) {
@@ -133,7 +131,7 @@ class App extends Component {
       )}
       
         {/* IMPORTANTE REVISAR */}
-			<div id="lider-positivo-modal" className="modal fade" tabIndex="-1" role="dialog">
+			{/* <div id="lider-positivo-modal" className="modal fade" tabIndex="-1" role="dialog">
 				<div className="modal-dialog modal-lg">
 
 
@@ -195,7 +193,7 @@ class App extends Component {
 					</div>
 
 				</div>
-			</div>
+			</div> */}
 
 
 
