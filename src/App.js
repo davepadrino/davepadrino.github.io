@@ -4,9 +4,7 @@ import Footer from './components/footerComponent';
 import SimpleModal from './components/modalComponent'
 import './styles/style.scss';
 import firebase from './firebase.js';
-import { social, mainImages } from './configObjects'
-
-
+import { social } from './configObjects'
 
 
 class App extends Component {
@@ -15,7 +13,7 @@ class App extends Component {
     this.state = {
       sidebarOpen: false,
       modalOpen: false,
-      projects: [],
+      projects: [].sort((a,b) => b.order-a.order),
       selectedProject: null
     }
   }
@@ -35,36 +33,34 @@ class App extends Component {
 
 
   componentDidMount = () => {
-    mainImages.forEach(element => {
-        firebase.storage().ref()
-          .child(`/${element.folderName}/${element.imageUrl}`)
-          .getDownloadURL()
-          .then(el => {
-            this.setState({projects: [...this.state.projects, 
-              {
-                imageUrl: el, 
-                projectName: element.projectName,
-                year: element.year,
-                webUrl: element.webUrl,
-                tech: element.tech,
-                folderName: element.folderName
-              }]})
-        })
-    })
-      // firebase.storage().ref().child(`/Lider Positivo/home.bmp`).getDownloadURL().then(el => {
-      //   this.setState({projects: [...this.state.projects, {imageUrl: el, projectName: 'Lider Positivo'}]})
-      //   // this.setState({projects: {'lp': el}})
-      //   // this.setState({projects: [{[`lider-positivo`]: el}]})
-      // })
+    firebase.database().ref().once('value', snap => {
+      const elements = snap.val();
+      snap.forEach(singleSnap => {
+        this.setState({projects: [...this.state.projects, 
+          {
+            imageUrl: elements[singleSnap.key].imageUrl, 
+            projectName: elements[singleSnap.key].projectName,
+            year: elements[singleSnap.key].year,
+            webUrl: elements[singleSnap.key].webUrl,
+            tech: elements[singleSnap.key].tech,
+            folderName: elements[singleSnap.key].folderName,
+            description: elements[singleSnap.key].description,
+            images: elements[singleSnap.key].images,
+            technologies: elements[singleSnap.key].technologies,
+            role: elements[singleSnap.key].role,
+            order: elements[singleSnap.key].order
+          }].sort((a,b) => console.log('33333', b.order-a.order))})
+      })
+    });
   }
 
-      handleOpen = () => {
-        this.setState({ modalOpen: true });
-      };
+    handleOpen = () => {
+      this.setState({ modalOpen: true });
+    };
 
-      handleClose = () => {
-        this.setState({ modalOpen: false });
-      };
+    handleClose = () => {
+      this.setState({ modalOpen: false });
+    };
 
   render() {
     return (
@@ -72,7 +68,7 @@ class App extends Component {
         if (this.state.sidebarOpen) {
           this.setState({sidebarOpen: false});
         }
-      }} >
+      }}>
         <div id="fh5co-offcanvas" 
             className={this.state.sidebarOpen ? 'showSidebar animated fadeInLeft' : 'animated fadeOutLeft'}>
           <span 
@@ -125,121 +121,38 @@ class App extends Component {
         </header>
 
         	<div className="container-fluid">
-            <div className="row fh5co-post-entry">
-            
-
-
-            { this.state.projects.length > 0 && 
-              Object.keys(this.state.projects).map((project, index) => 
-              <article className="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-                <div key={index}>
-                  <figure >
-                    <p><img src={this.state.projects[`${project}`].imageUrl} alt="home" className="img-responsive" /></p>
-                  </figure>
-                  <span className="fh5co-meta"><p>{this.state.projects[`${project}`].tech}</p></span>
-                  <a href={this.state.projects[`${project}`].webUrl} className="fh5co-meta" target="_blank" rel="noopener noreferrer">Visit</a>
-                  <h2 className="fh5co-article-title title-project" 
-                    onClick={() => {
-                      this.handleOpen();
-                      this.setState({
-                        selectedProject: this.state.projects[`${project}`]
-                      })
-                    }}>
-                    {this.state.projects[`${project}`].projectName}
-                  </h2>
-                  <span className="fh5co-meta fh5co-date">{this.state.projects[`${project}`].year}</span>
-                </div>
-                </article>
-            )}
-
-
-        {/* <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={this.state.open}
-          onClose={this.handleClose}
-          // className="modal"
-        >
-          <div style={this.getModalStyle()}>
-              Text in a modal
-          </div>
-        </Modal> */}
-
-      <SimpleModal open={this.state.modalOpen} handleClose={this.handleClose} project={this.state.selectedProject}/>
-      
-        {/* IMPORTANTE REVISAR */}
-			{/* <div id="lider-positivo-modal" className="modal fade" tabIndex="-1" role="dialog">
-				<div className="modal-dialog modal-lg">
-
-
-					<div className="modal-content">
-						<div className="modal-header">
-							<button type="button" className="close" data-dismiss="modal">&times;</button>
-							<h4 className="modal-title">Líder Positivo</h4>
-						</div>
-						<div className="modal-body">
-							<div className="row">
-
-								<div id="lider-positivo-carousel" className="carousel slide col-xs-12 col-md-7" data-ride="carousel">
-
-									<ol className="carousel-indicators">
-										<li data-target="#lider-positivo-carousel" data-slide-to="0" className="active"></li>
-										<li data-target="#lider-positivo-carousel" data-slide-to="1"></li>
-										<li data-target="#lider-positivo-carousel" data-slide-to="2"></li>
-										<li data-target="#lider-positivo-carousel" data-slide-to="3"></li>
-										<li data-target="#lider-positivo-carousel" data-slide-to="4"></li>
-									</ol>
-
-
-									<div className="carousel-inner">
-										<div className="item active">
-											<img src={this.state.lp} alt="login"/>
-										</div>
-
-									</div>
-
-
-									<a className="left carousel-control" href="#lider-positivo-carousel" data-slide="prev">
-									<span className="glyphicon glyphicon-chevron-left"></span>
-									<span className="sr-only">Previous</span>
-								</a>
-									<a className="right carousel-control" href="#lider-positivo-carousel" data-slide="next">
-									<span className="glyphicon glyphicon-chevron-right"></span>
-									<span className="sr-only">Next</span>
-								</a>
-								</div>
-								<div className="col-md-5 col-xs-12">
-									<h4>Description</h4>
-									<p>
-										This is another personal project started and finished by me. Made in wordpress, my first experience in task management and
-										playing developer and project mananger roles.
-									</p>
-									<h4>Technologies</h4>
-									<ul>
-										<li>Wordpress</li>
-										<li>Postgres</li>
-									</ul>
-									<h4>Role</h4>
-									Fullstack Developer
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-			</div> */}
-
-
-
-
-
-
+            <div className="row fh5co-post-entry">            
+              { this.state.projects.length > 0 && 
+                Object.keys(this.state.projects).map((project, index) => 
+                <article key={index} className="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+                  <div >
+                    <figure >
+                      <p><img src={this.state.projects[`${project}`].imageUrl} alt="home" className="img-responsive" /></p>
+                    </figure>
+                    <span className="fh5co-meta"><p>{this.state.projects[`${project}`].tech}</p></span>
+                    <a href={this.state.projects[`${project}`].webUrl} className="fh5co-meta" target="_blank" rel="noopener noreferrer">Visit</a>
+                    <h2 className="fh5co-article-title title-project" 
+                      onClick={() => {
+                        this.handleOpen();
+                        this.setState({
+                          selectedProject: this.state.projects[`${project}`]
+                        })
+                      }}>
+                      {this.state.projects[`${project}`].projectName}
+                    </h2>
+                    <span className="fh5co-meta fh5co-date">{this.state.projects[`${project}`].year}</span>
+                  </div>
+                  </article>
+              )}
+              {this.state.modalOpen &&
+                  <SimpleModal 
+                    open={this.state.modalOpen} 
+                    handleClose={this.handleClose} 
+                    project={this.state.selectedProject}
+                  />                      
+              }
             </div>
           </div>            
-
         <Footer />
       </div>
     );
