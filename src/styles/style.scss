@@ -24,6 +24,15 @@ $form-group-margin-bottom:       30px !default;
 $font-primary: 'Playfair Display', times, serif;
 $font-secondary: 'Roboto', arial, sans-serif;;
 
+
+.close {
+  outline: none;
+}
+
+.title-project {
+	cursor: pointer;
+}
+
 // Mixin
 @mixin transition($transition, $ease: ease) {
     -moz-transition:    all $transition $ease;

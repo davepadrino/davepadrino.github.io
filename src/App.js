@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
 import Footer from './components/footerComponent';
+import SimpleModal from './components/modalComponent'
 import './styles/style.scss';
 import firebase from './firebase.js';
 import { social, mainImages } from './configObjects'
+
 
 
 
@@ -12,7 +14,9 @@ class App extends Component {
     super();
     this.state = {
       sidebarOpen: false,
-      projects: []
+      modalOpen: false,
+      projects: [],
+      selectedProject: null
     }
   }
 
@@ -20,7 +24,9 @@ class App extends Component {
     <ul className="fh5co-social">
       {social.map(el => 
           <li key={el.name}>
-              <a href={el.url} target="_blank" rel="noopener noreferrer">
+              <a href={el.url} 
+                target="_blank"
+                rel="noopener noreferrer">
                   <i className={`icon-${el.name}`} />
               </a>
           </li>
@@ -30,16 +36,19 @@ class App extends Component {
 
   componentDidMount = () => {
     mainImages.forEach(element => {
-        firebase.storage().ref().child(`/${element.folderName}/${element.imageUrl}`).getDownloadURL().then(el => {
-                this.setState({projects: [...this.state.projects, 
-                  {
-                    imageUrl: el, 
-                    projectName: element.projectName,
-                    year: element.year,
-                    webUrl: element.webUrl,
-                    tech: element.tech,
-                    folderName: element.folderName
-                  }]})
+        firebase.storage().ref()
+          .child(`/${element.folderName}/${element.imageUrl}`)
+          .getDownloadURL()
+          .then(el => {
+            this.setState({projects: [...this.state.projects, 
+              {
+                imageUrl: el, 
+                projectName: element.projectName,
+                year: element.year,
+                webUrl: element.webUrl,
+                tech: element.tech,
+                folderName: element.folderName
+              }]})
         })
     })
       // firebase.storage().ref().child(`/Lider Positivo/home.bmp`).getDownloadURL().then(el => {
@@ -48,7 +57,14 @@ class App extends Component {
       //   // this.setState({projects: [{[`lider-positivo`]: el}]})
       // })
   }
-  
+
+      handleOpen = () => {
+        this.setState({ modalOpen: true });
+      };
+
+      handleClose = () => {
+        this.setState({ modalOpen: false });
+      };
 
   render() {
     return (
@@ -57,7 +73,8 @@ class App extends Component {
           this.setState({sidebarOpen: false});
         }
       }} >
-        <div id="fh5co-offcanvas" className={this.state.sidebarOpen ? 'showSidebar animated fadeInLeft' : 'animated fadeOutLeft'}>
+        <div id="fh5co-offcanvas" 
+            className={this.state.sidebarOpen ? 'showSidebar animated fadeInLeft' : 'animated fadeOutLeft'}>
           <span 
             onClick={() => {
               this.setState({sidebarOpen: false});
@@ -112,23 +129,43 @@ class App extends Component {
             
 
 
+            { this.state.projects.length > 0 && 
+              Object.keys(this.state.projects).map((project, index) => 
+              <article className="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+                <div key={index}>
+                  <figure >
+                    <p><img src={this.state.projects[`${project}`].imageUrl} alt="home" className="img-responsive" /></p>
+                  </figure>
+                  <span className="fh5co-meta"><p>{this.state.projects[`${project}`].tech}</p></span>
+                  <a href={this.state.projects[`${project}`].webUrl} className="fh5co-meta" target="_blank" rel="noopener noreferrer">Visit</a>
+                  <h2 className="fh5co-article-title title-project" 
+                    onClick={() => {
+                      this.handleOpen();
+                      this.setState({
+                        selectedProject: this.state.projects[`${project}`]
+                      })
+                    }}>
+                    {this.state.projects[`${project}`].projectName}
+                  </h2>
+                  <span className="fh5co-meta fh5co-date">{this.state.projects[`${project}`].year}</span>
+                </div>
+                </article>
+            )}
 
 
-
-      { this.state.projects.length > 0 && 
-        Object.keys(this.state.projects).map((project, index) => 
-        <article className="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-          <div key={index}>
-            <figure >
-              <p><img src={this.state.projects[`${index}`].imageUrl} alt="home" className="img-responsive" /></p>
-            </figure>
-            <span className="fh5co-meta"><p>{this.state.projects[`${index}`].tech}</p></span>
-            <a href={this.state.projects[`${index}`].webUrl} className="fh5co-meta" target="_blank" rel="noopener noreferrer">Visit</a>
-            <h2 className="fh5co-article-title"><a href="#" data-toggle="modal" data-target={`#${this.state.projects[`${index}`].folderName}-modal`}>{this.state.projects[`${index}`].projectName}</a></h2>
-            <span className="fh5co-meta fh5co-date">{this.state.projects[`${index}`].year}</span>
+        {/* <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.open}
+          onClose={this.handleClose}
+          // className="modal"
+        >
+          <div style={this.getModalStyle()}>
+              Text in a modal
           </div>
-          </article>
-      )}
+        </Modal> */}
+
+      <SimpleModal open={this.state.modalOpen} handleClose={this.handleClose} project={this.state.selectedProject}/>
       
         {/* IMPORTANTE REVISAR */}
 			{/* <div id="lider-positivo-modal" className="modal fade" tabIndex="-1" role="dialog">
@@ -208,5 +245,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
