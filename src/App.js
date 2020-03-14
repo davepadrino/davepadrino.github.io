@@ -49,7 +49,7 @@ class App extends Component {
             technologies: elements[singleSnap.key].technologies,
             role: elements[singleSnap.key].role,
             order: elements[singleSnap.key].order
-          }].sort((a,b) => console.log('33333', b.order-a.order))})
+          }].sort((a,b) => b.order-a.order)})
       })
     });
   }
