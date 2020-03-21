@@ -3,7 +3,7 @@ import Modal from "@material-ui/core/Modal";
 import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
 
-import SwipeableTextMobileStepper from "../carouselComponent";
+import SwipeableTextMobileStepper from "../Carousel";
 
 const Paper = styled.div`
   width: 90%;
