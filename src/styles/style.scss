@@ -1,33 +1,32 @@
-
 // Overrides
-$grid-gutter-width: 40px !default; 
-$border-radius-base:  4px !default;
+$grid-gutter-width: 40px !default;
+$border-radius-base: 4px !default;
 $padding-base-vertical: 14px !default;
 
 // $brand-primary: #52d3aa !default;
 // $brand-secondary: #3f95ea !default; 
 
-$brand-primary: 			#f7c873 !default;
-$brand-secondary: 		#41454f !default;
-$brand-success:         #58ca7e !default;
-$brand-info:            #1784fb !default;
-$brand-warning:         #fed330 !default;
-$brand-danger:          #fb4f59 !default;
+$brand-primary: #f7c873 !default;
+$brand-secondary: #41454f !default;
+$brand-success: #58ca7e !default;
+$brand-info: #1784fb !default;
+$brand-warning: #fed330 !default;
+$brand-danger: #fb4f59 !default;
 
 $brand-white: #fff !default;
 $brand-black: #000 !default;
 
 
-$input-border-focus:  $brand-primary !default;
-$form-group-margin-bottom:       30px !default;
+$input-border-focus: $brand-primary !default;
+$form-group-margin-bottom: 30px !default;
 
-$font-primary: 'Playfair Display', times, serif;
-$font-secondary: 'Roboto', arial, sans-serif;;
-
-
-.close {
-  outline: none;
-}
+$font-primary: 'Playfair Display',
+times,
+serif;
+$font-secondary: 'Roboto',
+arial,
+sans-serif;
+;
 
 .title-project {
 	cursor: pointer;
@@ -35,12 +34,13 @@ $font-secondary: 'Roboto', arial, sans-serif;;
 
 // Mixin
 @mixin transition($transition, $ease: ease) {
-    -moz-transition:    all $transition $ease;
-    -o-transition:      all $transition $ease;
-    -webkit-transition: all $transition $ease;
-    -ms-transition: 		all $transition $ease;
-    transition:         all $transition $ease;
+	-moz-transition: all $transition $ease;
+	-o-transition: all $transition $ease;
+	-webkit-transition: all $transition $ease;
+	-ms-transition: all $transition $ease;
+	transition: all $transition $ease;
 }
+
 @mixin fh5co-translateX($translatex) {
 	-moz-transform: translateX($translatex);
 	-webkit-transform: translateX($translatex);
@@ -48,35 +48,39 @@ $font-secondary: 'Roboto', arial, sans-serif;;
 	-o-transform: translateX($translatex);
 	transform: translateX($translatex);
 }
+
 @mixin inline-block() {
-	display:-moz-inline-stack;
-	display:inline-block;
-	zoom:1;
-	*display:inline;
+	display: -moz-inline-stack;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
 }
+
 @mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
 }
+
 @mixin flex() {
-	display: -webkit-box;      
-  	display: -moz-box;         
-  	display: -ms-flexbox;      
-  	display: -webkit-flex;     
-  	display: flex;             
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
 }
+
 @mixin flexwrap() {
 	flex-wrap: wrap;
-	-webkit-flex-wrap: wrap; 
-	-moz-flex-wrap: wrap; 
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
 }
 
 @font-face {
 	font-family: 'icomoon';
-	src:url('./fonts/icomoon/icomoon.eot?srf3rx');
-	src:url('./fonts/icomoon/icomoon.eot?srf3rx#iefix') format('embedded-opentype'),
+	src: url('./fonts/icomoon/icomoon.eot?srf3rx');
+	src: url('./fonts/icomoon/icomoon.eot?srf3rx#iefix') format('embedded-opentype'),
 		url('./fonts/icomoon/icomoon.ttf?srf3rx') format('truetype'),
 		url('./fonts/icomoon/icomoon.woff?srf3rx') format('woff'),
 		url('./fonts/icomoon/icomoon.svg?srf3rx#icomoon') format('svg');
@@ -85,7 +89,7 @@ $font-secondary: 'Roboto', arial, sans-serif;;
 }
 
 @mixin icomoon() {
-	
+
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -97,7 +101,7 @@ $font-secondary: 'Roboto', arial, sans-serif;;
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	
+
 }
 
 // Import 
@@ -109,6 +113,7 @@ $font-secondary: 'Roboto', arial, sans-serif;;
 html {
 	background: $brand-white;
 }
+
 body {
 	margin: 0 auto;
 	font-family: $font-secondary;
@@ -117,41 +122,51 @@ body {
 	line-height: 1.8;
 	color: #222;
 	background: $brand-white;
+
 	&.fh5co-overflow {
-		overflow-x: auto;	
+		overflow-x: auto;
 	}
 }
 
 ::-webkit-selection {
-  color: $brand-white;
-  background: $brand-primary;
+	color: $brand-white;
+	background: $brand-primary;
 }
 
 ::-moz-selection {
-  color: $brand-white;
-  background: $brand-primary;
+	color: $brand-white;
+	background: $brand-primary;
 }
 
 ::selection {
-  color: $brand-white;
-  background: $brand-primary;
+	color: $brand-white;
+	background: $brand-primary;
 }
 
 
 a {
 	color: $brand-primary;
 	@include transition(.5s);
-	&:hover, &:focus, &:active {
+
+	&:hover,
+	&:focus,
+	&:active {
 		color: darken($brand-primary, 15%);
 		outline: none;
 		text-decoration: none;
 	}
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: $font-primary;
 	color: $brand-black;
 }
+
 p {
 	margin-bottom: 30px;
 }
@@ -167,102 +182,147 @@ p {
 	font-weight: 700;
 	@include border-radius(4px);
 	@include transition(.5s);
+
 	&.btn-md {
-		padding: 10px 20px!important;
+		padding: 10px 20px !important;
 	}
+
 	&.btn-lg {
-		padding: 18px 36px!important;
+		padding: 18px 36px !important;
 	}
-	&:hover, &:active, &:focus {
-		box-shadow: none!important;
-		outline: none!important;
+
+	&:hover,
+	&:active,
+	&:focus {
+		box-shadow: none !important;
+		outline: none !important;
 	}
 }
+
 .btn-primary {
 	background: $brand-primary;
 	color: $brand-white;
 	border: 2px solid $brand-primary;
-	&:hover, &:focus, &:active {
-		background: darken($brand-primary, 5%)!important;
-		border-color: darken($brand-primary, 5%)!important;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: darken($brand-primary, 5%) !important;
+		border-color: darken($brand-primary, 5%) !important;
 	}
+
 	&.btn-outline {
 		background: transparent;
 		color: $brand-primary;
 		border: 2px solid $brand-primary;
-		&:hover, &:focus, &:active {
+
+		&:hover,
+		&:focus,
+		&:active {
 			background: $brand-primary;
 			color: $brand-white;
 		}
 	}
 }
+
 .btn-success {
 	background: $brand-success;
 	color: $brand-white;
 	border: 2px solid $brand-success;
-	&:hover, &:focus, &:active {
-		background: darken($brand-success, 5%)!important;
-		border-color: darken($brand-success, 5%)!important;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: darken($brand-success, 5%) !important;
+		border-color: darken($brand-success, 5%) !important;
 	}
+
 	&.btn-outline {
 		background: transparent;
 		color: $brand-success;
 		border: 2px solid $brand-success;
-		&:hover, &:focus, &:active {
+
+		&:hover,
+		&:focus,
+		&:active {
 			background: $brand-success;
 			color: $brand-white;
 		}
 	}
 }
+
 .btn-info {
 	background: $brand-info;
 	color: $brand-white;
 	border: 2px solid $brand-info;
-	&:hover, &:focus, &:active {
-		background: darken($brand-info, 5%)!important;
-		border-color: darken($brand-info, 5%)!important;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: darken($brand-info, 5%) !important;
+		border-color: darken($brand-info, 5%) !important;
 	}
+
 	&.btn-outline {
 		background: transparent;
 		color: $brand-info;
 		border: 2px solid $brand-info;
-		&:hover, &:focus, &:active {
+
+		&:hover,
+		&:focus,
+		&:active {
 			background: $brand-info;
 			color: $brand-white;
 		}
 	}
 }
+
 .btn-warning {
 	background: $brand-warning;
 	color: $brand-white;
 	border: 2px solid $brand-warning;
-	&:hover, &:focus, &:active {
-		background: darken($brand-warning, 5%)!important;
-		border-color: darken($brand-warning, 5%)!important;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: darken($brand-warning, 5%) !important;
+		border-color: darken($brand-warning, 5%) !important;
 	}
+
 	&.btn-outline {
 		background: transparent;
 		color: $brand-warning;
 		border: 2px solid $brand-warning;
-		&:hover, &:focus, &:active {
+
+		&:hover,
+		&:focus,
+		&:active {
 			background: $brand-warning;
 			color: $brand-white;
 		}
 	}
 }
+
 .btn-danger {
 	background: $brand-danger;
 	color: $brand-white;
 	border: 2px solid $brand-danger;
-	&:hover, &:focus, &:active {
-		background: darken($brand-danger, 5%)!important;
-		border-color: darken($brand-danger, 5%)!important;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: darken($brand-danger, 5%) !important;
+		border-color: darken($brand-danger, 5%) !important;
 	}
+
 	&.btn-outline {
 		background: transparent;
 		color: $brand-danger;
 		border: 2px solid $brand-danger;
-		&:hover, &:focus, &:active {
+
+		&:hover,
+		&:focus,
+		&:active {
 			background: $brand-danger;
 			color: $brand-white;
 		}
@@ -276,12 +336,17 @@ p {
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	@include transition(.3s);
-	&:hover, &:focus, &:active {
+
+	&:hover,
+	&:focus,
+	&:active {
 		box-shadow: none;
 	}
 }
 
-figure {margin: 0px;}
+figure {
+	margin: 0px;
+}
 
 // Form Input Field
 .form-control {
@@ -291,73 +356,88 @@ figure {margin: 0px;}
 	height: 54px;
 	font-size: 18px;
 	font-weight: 300;
-  	&:active, &:focus {
-  		outline: none;
+
+	&:active,
+	&:focus {
+		outline: none;
 		box-shadow: none;
 		border-color: $brand-primary;
-  }
+	}
 }
 
 #fh5co-header {
 	padding: 3em 3em;
 	float: left;
 	width: 100%;
+
 	@media screen and (max-width: $screen-lg) {
 		padding-left: 15px;
 		padding-right: 15px;
 	}
+
 	@media screen and (max-width: $screen-xs) {
-		padding-bottom: 5em!important;
+		padding-bottom: 5em !important;
 	}
+
 	.fh5co-nav-toggle {
 		position: absolute;
 		top: 4.2em;
 		left: 3em;
 		z-index: 99;
+
 		@media screen and (max-width :$screen-lg) {
 			top: 4em;
 			left: 15px;
 		}
+
 		@media screen and (max-width: $screen-sm) {
 			top: 2.5em;
 			left: 15px;
 		}
 	}
+
 	.fh5co-social {
-		
-		position: absolute!important;
-		right: 3em!important;
+
+		position: absolute !important;
+		right: 3em !important;
 		top: 3.2em;
 		z-index: 99;
 		@include transition(.5s);
+
 		@media screen and (max-width :$screen-lg) {
-			right: 15px!important;
+			right: 15px !important;
 			top: 3.2em;
 		}
+
 		@media screen and (max-width :$screen-sm) {
-			right: 15px!important;
+			right: 15px !important;
 			top: 1.5em;
 		}
+
 		@media screen and (max-width: $screen-xs) {
-			right: inherit!important;
-			left: inherit!important;
+			right: inherit !important;
+			left: inherit !important;
 			top: 5em;
-			left: 50%!important;
+			left: 50% !important;
 			margin-left: -50px;
 		}
 	}
+
 	@media screen and (max-width: $screen-sm) {
 		padding-top: 1.5em;
 		padding-bottom: 1.5em;
 		padding-left: 15px;
 		padding-right: 15px;
 	}
+
 	#fh5co-logo {
-		
+
 		text-align: center;
+
 		a {
 			color: $brand-black;
 			text-decoration: none;
+
 			sup {
 				font-size: 20px;
 				top: -20px;
@@ -366,6 +446,7 @@ figure {margin: 0px;}
 	}
 
 }
+
 .fh5co-post-prev,
 .fh5co-post-next {
 	position: fixed;
@@ -377,17 +458,20 @@ figure {margin: 0px;}
 	text-transform: uppercase;
 	font-weight: bold;
 	@include transition(.5s);
+
 	@media screen and (max-width: $screen-sm) {
 		position: relative;
 		text-align: center;
 		@include inline-block;
 
 	}
+
 	span {
 		vertical-align: base;
 		width: 100px;
+
 		i {
-			
+
 			top: 7px;
 			position: relative;
 			font-size: 30px;
@@ -395,103 +479,126 @@ figure {margin: 0px;}
 		}
 	}
 }
+
 .fh5co-post-prev {
 	left: 0;
 	margin-left: -25px;
+
 	&:hover {
 		margin-left: 10px;
 		color: $brand-black;
 	}
+
 	@media screen and (max-width: $screen-sm) {
 		margin-left: 15px;
 		float: left;
 	}
 }
+
 .fh5co-post-next {
-	right: 0;	
+	right: 0;
 	margin-right: -25px;
-	
+
 	&:hover {
 		margin-right: 10px;
 		color: $brand-black;
 	}
+
 	@media screen and (max-width: $screen-sm) {
 		margin-right: 15px;
 		float: right;
 	}
 }
+
 .fh5co-post-entry {
 	&.single-entry {
 		.fh5co-article-title {
 			font-size: 80px;
+
 			@media screen and (max-width: $screen-md) {
 				font-size: 56px;
 			}
+
 			@media screen and (max-width: $screen-sm) {
 				font-size: 34px;
 			}
 		}
 	}
+
 	article {
 		text-align: center;
 		float: left;
 		margin-bottom: 110px;
 		padding-left: 3em;
 		padding-right: 3em;
+
 		@media screen and (max-width: $screen-lg) {
 			margin-bottom: 80px;
 			padding-left: 15px;
 			padding-right: 15px;
 		}
+
 		@media screen and (max-width: $screen-md) {
 			margin-bottom: 80px;
 			padding-left: 15px;
 			padding-right: 15px;
 		}
+
 		@media screen and (max-width: $screen-sm) {
 			margin-bottom: 40px;
 			padding-left: 15px;
 			padding-right: 15px;
 		}
+
 		a {
 			img {
 				opacity: 1;
 				@include transition(.5s);
 			}
+
 			&:hover {
 				img {
 					opacity: .4;
 				}
 			}
 		}
+
 		figure {
 			margin-bottom: 30px;
 		}
+
 		h2 {
 			font-family: $font-primary;
 			font-size: 34px;
 			color: $brand-black;
 			margin-bottom: 30px;
-			a, p {
+
+			a,
+			p {
 				color: $brand-black;
 			}
+
 			@media screen and (max-width: $screen-md) {
 				font-size: 26px;
 			}
+
 			@media screen and (max-width: $screen-sm) {
 				font-size: 24px;
 				margin-bottom: 20px;
 			}
 		}
+
 		.fh5co-meta {
 			font-size: 16px;
 			font-family: $font-secondary;
 			color: lighten($brand-black, 60%);
 			margin-bottom: 20px;
 			display: block;
+
 			@media screen and (max-width: $screen-xs) {
 				margin-bottom: 10px;
 			}
+
 			&.fh5co-date {
 				text-transform: uppercase;
 				letter-spacing: 2px;
@@ -500,17 +607,21 @@ figure {margin: 0px;}
 
 		.content-article {
 			padding-top: 4em;
+
 			a {
 				text-decoration: underline;
 			}
+
 			blockquote {
 				border-left: none;
 				padding-left: 0;
+
 				p {
 					font-family: $font-primary;
 					font-size: 27px;
 					font-style: italic;
 					line-height: 1.5;
+
 					cite {
 						padding-top: 20px;
 						display: block;
@@ -520,7 +631,7 @@ figure {margin: 0px;}
 					}
 				}
 
-			} 
+			}
 		}
 
 		.fh5co-highlight {
@@ -528,13 +639,16 @@ figure {margin: 0px;}
 			padding: 30px;
 			width: 100%;
 			margin-bottom: 30px;
+
 			&.right {
 				float: right;
 				margin-left: 30px;
 			}
+
 			&.left {
 				float: left;
 			}
+
 			h4 {
 				font-size: 14px;
 				letter-spacing: 2px;
@@ -542,6 +656,7 @@ figure {margin: 0px;}
 				text-transform: uppercase;
 				font-family: $font-secondary;
 			}
+
 			p {
 				font-family: $font-primary;
 				// font-style: italic;
@@ -556,11 +671,13 @@ figure {margin: 0px;}
 	padding: 0;
 	margin: 30px 0 0 0;
 	position: relative;
+
 	li {
 		padding: 0;
 		margin: 0;
 		list-style: none;
 		display: inline;
+
 		a {
 			font-size: 20px;
 			padding: 4px;
@@ -570,51 +687,56 @@ figure {margin: 0px;}
 	}
 }
 
-[class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+[class^="icon-"],
+[class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
 
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .icon-linkedin-with-circle:before {
-    content: "\ea72";
+	content: "\ea72";
 }
+
 .icon-linkedin:before {
-    content: "\ea73";
+	content: "\ea73";
 }
 
 .icon-instagram-with-circle:before {
-    content: "\ea6e";
+	content: "\ea6e";
 }
+
 .icon-instagram:before {
-    content: "\ea6f";
+	content: "\ea6f";
 }
 
 .icon-facebook-with-circle:before {
-    content: "\ea66";
+	content: "\ea66";
 }
+
 .icon-facebook:before {
-    content: "\ea67";
+	content: "\ea67";
 }
 
 .icon-github-with-circle:before {
-    content: "\ea6a";
+	content: "\ea6a";
 }
+
 .icon-github:before {
-    content: "\ea6b";
+	content: "\ea6b";
 }
 
 .icon-cross3:before {
-    content: "\e117";
+	content: "\e117";
 }
 
 figure {
@@ -626,8 +748,8 @@ figure {
 }
 
 .showSidebar {
-	display: block!important;
-	opacity: 1!important;
+	display: block !important;
+	opacity: 1 !important;
 }
 
 .animated {
@@ -635,69 +757,69 @@ figure {
 	animation-duration: 1s;
 	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both;
-  }
+}
 
 @-webkit-keyframes fadeInLeft {
 	from {
-	  opacity: 0;
-	  -webkit-transform: translate3d(-50px, 0, 0);
-	  transform: translate3d(-50px, 0, 0);
+		opacity: 0;
+		-webkit-transform: translate3d(-50px, 0, 0);
+		transform: translate3d(-50px, 0, 0);
 	}
-  
+
 	to {
-	  opacity: 1;
-	  -webkit-transform: none;
-	  transform: none;
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none;
 	}
-  }
-  
-  @keyframes fadeInLeft {
+}
+
+@keyframes fadeInLeft {
 	from {
-	  opacity: 0;
-	  -webkit-transform: translate3d(-50px, 0, 0);
-	  transform: translate3d(-50px, 0, 0);
+		opacity: 0;
+		-webkit-transform: translate3d(-50px, 0, 0);
+		transform: translate3d(-50px, 0, 0);
 	}
-  
+
 	to {
-	  opacity: 1;
-	  -webkit-transform: none;
-	  transform: none;
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none;
 	}
-  }
-  
-  .fadeInLeft {
+}
+
+.fadeInLeft {
 	-webkit-animation-name: fadeInLeft;
 	animation-name: fadeInLeft;
-  }
+}
 
-  @-webkit-keyframes fadeOutLeft {
+@-webkit-keyframes fadeOutLeft {
 	from {
-	  opacity: 1;
+		opacity: 1;
 	}
-  
+
 	to {
-	  opacity: 0;
-	  -webkit-transform: translate3d(-50px, 0, 0);
-	  transform: translate3d(-50px, 0, 0);
+		opacity: 0;
+		-webkit-transform: translate3d(-50px, 0, 0);
+		transform: translate3d(-50px, 0, 0);
 	}
-  }
-  
-  @keyframes fadeOutLeft {
+}
+
+@keyframes fadeOutLeft {
 	from {
-	  opacity: 1;
+		opacity: 1;
 	}
-  
+
 	to {
-	  opacity: 0;
-	  -webkit-transform: translate3d(-50px, 0, 0);
-	  transform: translate3d(-50px, 0, 0);
+		opacity: 0;
+		-webkit-transform: translate3d(-50px, 0, 0);
+		transform: translate3d(-50px, 0, 0);
 	}
-  }
-  
-  .fadeOutLeft {
+}
+
+.fadeOutLeft {
 	-webkit-animation-name: fadeOutLeft;
 	animation-name: fadeOutLeft;
-  }
+}
 
 #fh5co-offcanvas {
 	background: $brand-white;
@@ -711,10 +833,12 @@ figure {
 	opacity: 0;
 	display: none;
 	text-align: left;
+
 	@media screen and (max-width: $screen-sm) {
 		padding-top: 30px;
 		width: 270px;
 	}
+
 	.fh5co-close-offcanvas {
 		position: absolute;
 		top: 20px;
@@ -725,56 +849,68 @@ figure {
 		overflow: hidden;
 		color: lighten($brand-black, 80%);
 		@include transition(.3s);
+
 		@media screen and (max-width: $screen-sm) {
 			top: 5px;
 		}
+
 		&:hover {
 			width: 85px;
 			color: $brand-black;
 		}
-		> span {
+
+		>span {
 			width: 100px;
 			@include inline-block;
-			> span {
+
+			>span {
 				top: 7px;
 				position: relative;
 				font-size: 18px;
 				vertical-align: top;
 			}
 		}
-		
+
 	}
+
 	.fh5co-box {
 		float: left;
 		margin-bottom: 30px;
 		width: 100%;
 	}
+
 	.fh5co-menu,
 	.fh5co-bio {
 		width: 35%;
 		padding: 50px;
+
 		@media screen and (max-width: $screen-sm) {
 			width: 100%;
 			padding: 30px;
 		}
 	}
+
 	.fh5co-bio {
 		text-align: center;
 		float: left;
+
 		figure {
 			text-align: center;
 			display: block;
 			margin-bottom: 30px;
 		}
+
 		img {
 			width: 180px;
 			margin: 0 auto;
 			@include border-radius(50%);
 		}
+
 		p {
 			font-size: 16px;
 		}
 	}
+
 	.heading {
 		font-size: 16px;
 		letter-spacing: 2px;
@@ -782,17 +918,20 @@ figure {
 		color: lighten($brand-black, 80%);
 		margin-bottom: 30px;
 	}
+
 	.fh5co-menu {
 		float: right;
 
 		ul {
 			padding: 0;
 			margin: 0;
+
 			li {
 				padding: 0;
 				margin: 0 0 10px 0;
 				list-style: none;
 				display: block;
+
 				a {
 					color: $brand-black;
 				}
@@ -813,94 +952,111 @@ figure {
 .to-animate-2,
 .animate-box {
 	.js & {
-		opacity: 0;	
+		opacity: 0;
 	}
 }
 
 // Burger Menu
 .fh5co-nav-toggle {
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-  text-decoration: none;
-  &.active i {
-		&::before, &::after {
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	text-decoration: none;
+
+	&.active i {
+
+		&::before,
+		&::after {
 			background: $brand-primary;
 		}
-  }
-  &:hover, &:focus, &:active {
-  	outline: none;
-  	border-bottom: none!important;
-  }
-  i {
-  	position: relative;
-	  @include inline-block;
-	  width: 25px;
-	  height: 3px;
-	  color: #535659;
-	  font:bold 14px/.4 Helvetica;
-	  text-transform: uppercase;
-	  text-indent:-55px;
-	  background: #535659;
-	  transition: all .2s ease-out;
-		 &::before, &::after {
-	  	  content:'';
-		  width: 25px;
-		  height: 3px;
-		  background: #535659;
-		  position: absolute;
-		  left:0;
-		  @include transition(.2s);
-	  }
-  }
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		outline: none;
+		border-bottom: none !important;
+	}
+
+	i {
+		position: relative;
+		@include inline-block;
+		width: 25px;
+		height: 3px;
+		color: #535659;
+		font: bold 14px/.4 Helvetica;
+		text-transform: uppercase;
+		text-indent: -55px;
+		background: #535659;
+		transition: all .2s ease-out;
+
+		&::before,
+		&::after {
+			content: '';
+			width: 25px;
+			height: 3px;
+			background: #535659;
+			position: absolute;
+			left: 0;
+			@include transition(.2s);
+		}
+	}
 }
 
 .fh5co-nav-toggle i::before {
-  top: -7px;
+	top: -7px;
 }
+
 .fh5co-nav-toggle i::after {
-  bottom: -7px;
+	bottom: -7px;
 }
+
 .fh5co-nav-toggle:hover i::before {
-  top: -10px;
+	top: -10px;
 }
+
 .fh5co-nav-toggle:hover i::after {
-  bottom: -10px;
+	bottom: -10px;
 }
+
 .fh5co-nav-toggle.active i {
 	background: transparent;
 }
+
 .fh5co-nav-toggle.active i::before {
-  top:0;
-  -webkit-transform: rotateZ(45deg);
-     -moz-transform: rotateZ(45deg);
-      -ms-transform: rotateZ(45deg);
-       -o-transform: rotateZ(45deg);
-          transform: rotateZ(45deg);
+	top: 0;
+	-webkit-transform: rotateZ(45deg);
+	-moz-transform: rotateZ(45deg);
+	-ms-transform: rotateZ(45deg);
+	-o-transform: rotateZ(45deg);
+	transform: rotateZ(45deg);
 }
+
 .fh5co-nav-toggle.active i::after {
-  bottom:0;
-  -webkit-transform: rotateZ(-45deg);
-     -moz-transform: rotateZ(-45deg);
-      -ms-transform: rotateZ(-45deg);
-       -o-transform: rotateZ(-45deg);
-          transform: rotateZ(-45deg);
+	bottom: 0;
+	-webkit-transform: rotateZ(-45deg);
+	-moz-transform: rotateZ(-45deg);
+	-ms-transform: rotateZ(-45deg);
+	-o-transform: rotateZ(-45deg);
+	transform: rotateZ(-45deg);
 }
+
 .fh5co-nav-toggle {
-  position: absolute;
-  top: 18px;
-  left: 0;
-  z-index: 21;
-  padding: 6px 0 0 0;
-  display: block;
-  margin: 0 auto;
-  display: block;
-  height: 44px;
-  width: 25px;
-  border-bottom: none!important;
-  @media screen and (max-width: $screen-sm) {
+	position: absolute;
+	top: 18px;
+	left: 0;
+	z-index: 21;
+	padding: 6px 0 0 0;
+	display: block;
+	margin: 0 auto;
+	display: block;
+	height: 44px;
+	width: 25px;
+	border-bottom: none !important;
+
+	@media screen and (max-width: $screen-sm) {
 		display: block;
-  }
+	}
 }
 
 
@@ -908,22 +1064,27 @@ figure {
 
 // Menu bar Animate
 .fh5co-animated {
-  -webkit-animation-duration: .3s;
-  animation-duration: .3s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+	-webkit-animation-duration: .3s;
+	animation-duration: .3s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
 }
+
 .rp-b {
 	padding-bottom: 40px;
 }
+
 .cp-l {
 	padding-left: 50px;
+
 	@media screen and (max-width: $screen-md) {
 		padding-left: 15px;
 	}
 }
+
 .cp-r {
 	padding-right: 50px;
+
 	@media screen and (max-width: $screen-md) {
 		padding-right: 15px;
 	}
@@ -936,4 +1097,3 @@ figure {
 		float: none;
 	}
 }
-
