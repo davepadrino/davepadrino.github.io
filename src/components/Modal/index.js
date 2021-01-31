@@ -2,7 +2,6 @@ import React from "react";
 import Modal from "@material-ui/core/Modal";
 import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
-
 import SwipeableTextMobileStepper from "../Carousel";
 
 const Paper = styled.div`
@@ -78,7 +77,7 @@ const SimpleModal = ({ project, open, handleClose }) => (
               <p>{project.description}</p>
               <h4>Technologies</h4>
               <ul>
-                {project.technologies.split(",").map(el => (
+                {project.technologies.split(",").map((el) => (
                   <li key={el}>{el}</li>
                 ))}
               </ul>

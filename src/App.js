@@ -58,7 +58,10 @@ const App = () => {
         setSidebarOpen={setSidebarOpen}
         socialList={socialList}
       />
-      <header id="fh5co-header">
+      <header
+        id="fh5co-header"
+        className={sidebarOpen ? "gray-blur-effect" : ""}
+      >
         <div className="container-fluid">
           <div className="row">
             <span
@@ -71,15 +74,15 @@ const App = () => {
             </span>
             {socialList()}
             <div className="col-lg-12 col-md-12 text-center">
-              <h1 id="fh5co-logo">
-                <a href="index.html">David Padrino</a>
-              </h1>
+              <h1 id="fh5co-logo">David Padrino</h1>
             </div>
           </div>
         </div>
       </header>
 
-      <div className="container-fluid">
+      <div
+        className={`${sidebarOpen ? "gray-blur-effect" : ""} container-fluid`}
+      >
         <div className="row fh5co-post-entry">
           {projects.length > 0 &&
             Object.keys(projects).map((project, index) => (
@@ -132,7 +135,7 @@ const App = () => {
           )}
         </div>
       </div>
-      <Footer />
+      <Footer sidebarOpen={sidebarOpen} />
     </div>
   );
 };

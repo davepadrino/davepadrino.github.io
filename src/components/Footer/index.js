@@ -1,11 +1,11 @@
 import React from "react";
 import "../../styles/style.scss";
 
-const Footer = () => {
+const Footer = ({ sidebarOpen }) => {
   return (
-    <footer id="fh5co-footer">
+    <footer id="fh5co-footer" className={sidebarOpen && "gray-blur-effect"}>
       <p>
-        <small>&copy; 2018. David Padrino. All Rights Reserverd. </small>
+        <small>{`© ${new Date().getFullYear()}. David Padrino. All Rights Reserverd. `}</small>
       </p>
     </footer>
   );
