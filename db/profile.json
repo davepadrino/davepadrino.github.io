@@ -1,0 +1,276 @@
+{
+  "basics": {
+    "fullName": "David Padrino Gonzalez",
+    "headline": "Software Engineer | TypeScript | ES6 | Node.js | Ruby on Rails",
+    "location": "Zaragoza, Aragon, Spain",
+    "email": "david.padrino3@hotmail.com",
+    "tagline": "Learn, improve and change the world by coding.",
+    "summary": [
+      "Full-stack web developer with a strong product mindset, a passion for clean software, and a long-running interest in astrophysics.",
+      "Experienced across frontend and backend work with React, Node.js, Ruby on Rails, and modern JavaScript and TypeScript ecosystems.",
+      "Comfortable modernizing legacy platforms, mentoring teammates, and collaborating in agile environments to ship reliable user-facing products."
+    ],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/david-padrino"
+      },
+      {
+        "label": "Blog",
+        "url": "http://dave-padrino.blogspot.com"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "title": "Frontend Delivery",
+      "summary": "Interfaces and modern JavaScript foundations for product-facing work.",
+      "skills": ["TypeScript", "React", "GraphQL", "ES6"]
+    },
+    {
+      "title": "Backend Systems",
+      "summary": "Service delivery, data access, and application modernization across mature stacks.",
+      "skills": ["Node.js", "Ruby on Rails", "Prisma ORM", "MySQL"]
+    },
+    {
+      "title": "Platform Operations",
+      "summary": "Automation, observability, and delivery support around the product lifecycle.",
+      "skills": ["GitHub Actions", "Docker", "AWS S3", "Grafana", "RSpec"]
+    }
+  ],
+  "languages": [
+    {
+      "name": "Spanish",
+      "proficiency": "Native or Bilingual"
+    },
+    {
+      "name": "English",
+      "proficiency": "Full Professional"
+    },
+    {
+      "name": "German",
+      "proficiency": "Elementary"
+    }
+  ],
+  "publications": [
+    {
+      "title": "Bases de Datos NoSQL: importancia en las empresas modernas",
+      "authors": ["David Padrino Gonzalez"]
+    }
+  ],
+  "services": [
+    {
+      "title": "Legacy Platform Migrations",
+      "description": "Modernize mature applications by moving teams from legacy frontend and backend stacks toward React, TypeScript, Prisma, and maintainable service boundaries.",
+      "tags": ["Backbone to React", "Elixir to Rails", "Prisma", "TypeScript"]
+    },
+    {
+      "title": "Full-Stack Product Delivery",
+      "description": "Build and improve recruiting and internal tooling experiences across frontend, backend, and data workflows with a pragmatic delivery mindset.",
+      "tags": ["React", "Node.js", "Ruby on Rails", "GraphQL"]
+    },
+    {
+      "title": "Developer Workflow Automation",
+      "description": "Reduce operational drag with GitHub Actions, Dockerized sandbox environments, cloud asset pipelines, and onboarding support for new teammates.",
+      "tags": ["GitHub Actions", "Docker", "AWS S3", "Mentoring"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "XING",
+      "location": "Barcelona, Catalonia, Spain",
+      "positions": [
+        {
+          "title": "Software Engineer",
+          "startDate": "2021-06",
+          "endDate": "Present",
+          "durationLabel": "4 years 10 months",
+          "summary": "Contributed across recruiting-platform backend and frontend modernization while supporting product delivery, automation, and team onboarding.",
+          "highlights": [
+            "Spearheaded backend migration work to Prisma ORM and MySQL 8 upgrades.",
+            "Coordinated with SRE and QA to unblock a low-traffic issue through improved operational calculations.",
+            "Built GitHub Actions automation and Dockerized apps for sandbox environments.",
+            "Managed image workflows with AWS S3 through cron-based processing.",
+            "Helped migrate React frontend code into a monorepo and strengthen the codebase with TypeScript.",
+            "Supported a project migration from Elixir to Ruby on Rails.",
+            "Contributed to a recruiter-facing feature that used ChatGPT, the OpenAI API, and GraphQL to suggest candidates.",
+            "Mentored new teammates and supported medium-sized recruiting-app issues raised by Customer Support."
+          ],
+          "technologies": [
+            "Prisma ORM",
+            "MySQL 8",
+            "React",
+            "TypeScript",
+            "Ruby on Rails",
+            "Elixir",
+            "GraphQL",
+            "GitHub Actions",
+            "Docker",
+            "AWS S3",
+            "OpenAI API"
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Hiberus Tecnologia",
+      "location": "Zaragoza, Spain",
+      "positions": [
+        {
+          "title": "Senior Full-Stack Developer",
+          "startDate": "2019-03",
+          "endDate": "2021-06",
+          "durationLabel": "2 years 4 months",
+          "summary": "Worked directly for XING as a client-facing consultant leading legacy frontend modernization and coordinating delivery with the product stakeholders.",
+          "highlights": [
+            "Migrated a legacy Backbone codebase to React.",
+            "Updated outdated library usage to modern React patterns.",
+            "Led a team of five developers while staying closely aligned with the client.",
+            "Supported strategy, sprint planning, and yearly goal selection.",
+            "Helped interview JavaScript and React candidates for the recruiting organization."
+          ],
+          "technologies": [
+            "React",
+            "Backbone",
+            "JavaScript",
+            "Agile Delivery",
+            "Sprint Planning"
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Teravision Technologies",
+      "location": "Caracas, Venezuela",
+      "positions": [
+        {
+          "title": "Senior Full-Stack Developer",
+          "startDate": "2018-08",
+          "endDate": "2019-03",
+          "durationLabel": "8 months",
+          "summary": "Worked on scalable client systems and requirement discovery as part of a multi-disciplinary delivery team.",
+          "highlights": [
+            "Built scalable systems using ReactJS, Redux, and related technologies.",
+            "Defined requirements directly with clients."
+          ],
+          "technologies": ["ReactJS", "Redux", "Client Discovery"]
+        },
+        {
+          "title": "Intermediate Full Stack Developer",
+          "startDate": "2017-10",
+          "endDate": "2018-08",
+          "durationLabel": "11 months",
+          "summary": "Expanded full-stack delivery responsibilities while helping shape scalable web systems.",
+          "highlights": [
+            "Contributed to scalable frontend and backend implementations.",
+            "Worked with clients to refine delivery requirements."
+          ],
+          "technologies": ["JavaScript", "ReactJS", "Full-Stack Development"]
+        },
+        {
+          "title": "Junior Full Stack Developer",
+          "startDate": "2017-06",
+          "endDate": "2017-10",
+          "durationLabel": "5 months",
+          "summary": "Started the Teravision journey delivering product features as part of a full-stack engineering team.",
+          "highlights": [
+            "Supported the construction of scalable systems.",
+            "Collaborated on requirement gathering with the client."
+          ],
+          "technologies": ["JavaScript", "ReactJS", "Client Collaboration"]
+        }
+      ]
+    },
+    {
+      "company": "Wikot",
+      "location": "Caracas, Venezuela",
+      "positions": [
+        {
+          "title": "Team Leader",
+          "startDate": "2017-02",
+          "endDate": "2017-06",
+          "durationLabel": "5 months",
+          "summary": "Led a small delivery team and aligned implementation decisions with client and project stakeholders.",
+          "highlights": [
+            "Guided a team through development and unit testing work.",
+            "Made technology decisions together with clients.",
+            "Estimated module delivery with the project manager.",
+            "Supported developers with code issues when needed.",
+            "Worked on relational and use-case model construction."
+          ],
+          "technologies": [
+            "Team Leadership",
+            "Unit Testing",
+            "Project Estimation",
+            "System Modeling"
+          ]
+        },
+        {
+          "title": "Junior Web Developer",
+          "startDate": "2016-09",
+          "endDate": "2017-02",
+          "durationLabel": "6 months",
+          "summary": "Delivered and tested client projects across a broad PHP and JavaScript web stack.",
+          "highlights": [
+            "Built and tested projects using AngularJS, Laravel, PHP, WordPress, and jQuery.",
+            "Contributed relational and use-case model construction."
+          ],
+          "technologies": ["AngularJS", "Laravel", "PHP", "WordPress", "jQuery"]
+        }
+      ]
+    },
+    {
+      "company": "UCV",
+      "location": "Caracas, Venezuela",
+      "positions": [
+        {
+          "title": "Teacher Assistant in Web Development",
+          "startDate": "2016-01",
+          "endDate": "2017-01",
+          "durationLabel": "1 year 1 month",
+          "summary": "Supported the academic web-development teaching team with labs, activities, and environment setup.",
+          "highlights": [
+            "Prepared machine environments for laboratories.",
+            "Wrote activities and projects for the course.",
+            "Corrected lab work."
+          ],
+          "technologies": ["Teaching Support", "Lab Setup", "Technical Writing"]
+        }
+      ]
+    },
+    {
+      "company": "4Geeks",
+      "location": "Caracas, Venezuela",
+      "positions": [
+        {
+          "title": "Odoo 9 Support and Development",
+          "startDate": "2015-08",
+          "endDate": "2016-08",
+          "durationLabel": "1 year 1 month",
+          "summary": "Delivered ERP support and custom module development on top of the Odoo ecosystem.",
+          "highlights": [
+            "Created meetings and invoicing modules for Odoo 8.",
+            "Supported migration work to Odoo 9.",
+            "Documented product functionality and user manuals.",
+            "Built modules using Python's OpenERP framework."
+          ],
+          "technologies": ["Odoo", "Python", "OpenERP", "Documentation"]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidad Central de Venezuela (UCV)",
+      "location": "Caracas, Venezuela",
+      "programs": [
+        {
+          "degree": "Computing Science",
+          "field": "Information Technology",
+          "startYear": 2010,
+          "endYear": 2017
+        }
+      ]
+    }
+  ]
+}
